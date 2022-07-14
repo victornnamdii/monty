@@ -63,3 +63,21 @@ void pstr(stack_t **stack, unsigned int line_number)
 	}
 	putchar(10);
 }
+/**
+ * rotl - rotates stack to top
+ * @stack: beginning of stack
+ * @line_number: line number
+ */
+void rotl(stack_t **stack, unsigned int line_number)
+{
+	stack_t *tmp;
+	(void)line_number;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+		return;
+	tmp = *stack;
+	*stack = tmp->next;
+	(*stack)->prev = NULL;
+	add_dnodeint_end(stack, tmp->n);
+	free(tmp);
+}
