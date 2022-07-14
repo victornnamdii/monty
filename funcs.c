@@ -105,7 +105,7 @@ stack_t *get_dnodeint_at_index(stack_t *head, unsigned int index)
 	if (tmp == NULL)
 		return (NULL);
 
-	for (i < index)
+	while (i < index)
 	{
 		if (head == NULL)
 			return (NULL);
