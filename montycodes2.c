@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 /**
  * add - adds two elemts
  * @stack: beginning of stack

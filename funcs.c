@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 /**
  * free_dlistint - frees a doubly linked lists
  * @head: head of list
