@@ -22,6 +22,7 @@
 #define error_pop(ln) fprintf(stderr, "L%u: can't pop an empty stack\n", ln)
 #define error_swap(l) fprintf(stderr, "L%u: can't swap, stack too short\n", l)
 #define error_add(ln) fprintf(stderr, "L%u: can't add, stack too short\n", ln)
+#define error_sub(ln) fprintf(stderr, "L%u: can't sub, stack too short\n", ln)
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -72,6 +73,7 @@ ssize_t get_line(char **lineptr, size_t *n, FILE *stream);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 ssize_t getline(char **pline_buf, size_t *pn, FILE *fin);
 stack_t *add_dnodeint_end(stack_t **head, const int n);
+void sub(stack_t **stack, unsigned int line_number);
 
 typedef long int ssize_t;
 
