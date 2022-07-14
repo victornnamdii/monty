@@ -46,3 +46,20 @@ void pchar(stack_t **stack, unsigned int line_number)
 	putchar((*stack)->n);
 	putchar(10);
 }
+/**
+ * pstr - prints string starting from top of stack
+ * @stack: beginning of stack
+ * @line_number: line number
+ */
+void pstr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *traverse = *stack;
+	(void)line_number;
+
+	while (traverse && traverse->n > 0 && traverse->n < 127)
+	{
+		putchar(traverse->n);
+		traverse = traverse->next;
+	}
+	putchar(10);
+}
