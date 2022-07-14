@@ -43,6 +43,7 @@ void (*get_func(char *opcode))(stack_t**, unsigned int)
 		{"div", divt},
 		{"mul", mul},
 		{"mod", mod},
+		{"pchar", pchar},
 		{NULL, NULL}
 	};
 	while (ops[index].opcode)

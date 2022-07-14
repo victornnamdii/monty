@@ -26,3 +26,23 @@ void mod(stack_t **stack, unsigned int line_number)
 	*stack = tmp->next;
 	free(tmp);
 }
+/**
+ * pchar - prints char at top of stack
+ * @stack: beginning g of stack
+ * @line_number: line number
+ */
+void pchar(stack_t **stack, unsigned int line_number)
+{
+	if (!(*stack))
+	{
+		error_pchar2(line_number);
+		exit(EXIT_FAILURE);
+	}
+	if ((*stack)->n < 0 || (*stack)->n > 127)
+	{
+		errchar(line_number);
+		exit(EXIT_FAILURE);
+	}
+	putchar((*stack)->n);
+	putchar(10);
+}
