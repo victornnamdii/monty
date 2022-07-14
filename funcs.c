@@ -90,3 +90,28 @@ stack_t *add_dnodeint_end(stack_t **head, const int n)
 
 	return (tmp);
 }
+/**
+ * get_dnodeint_at_index - returns the nth node of a doubly
+ * linked list
+ * @head: head of list
+ * @index: index of node
+ * Return: nth node or NULL if node doesn't exist
+ */
+stack_t *get_dnodeint_at_index(stack_t *head, unsigned int index)
+{
+	unsigned int i;
+	stack_t *tmp = malloc(sizeof(stack_t));
+
+	if (tmp == NULL)
+		return (NULL);
+
+	for (i = 0; head != NULL; i++)
+	{
+		tmp = head;
+		head = head->next;
+		if (i == index)
+			return (tmp);
+	}
+
+	return (NULL);
+}

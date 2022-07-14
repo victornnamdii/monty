@@ -86,6 +86,9 @@ void mod(stack_t **stack, unsigned int line_number);
 void pchar(stack_t **stack, unsigned int line_number);
 void pstr(stack_t **stack, unsigned int line_number);
 void rotl(stack_t **stack, unsigned int line_number);
+stack_t *get_dnodeint_at_index(stack_t *head, unsigned int index);
+int delete_dnodeint_at_index(stack_t **head, unsigned int index);
+void rotr(stack_t **stack, unsigned int line_number);
 
 typedef long int ssize_t;
 

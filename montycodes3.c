@@ -81,3 +81,19 @@ void rotl(stack_t **stack, unsigned int line_number)
 	add_dnodeint_end(stack, tmp->n);
 	free(tmp);
 }
+/**
+ * rotr - rotates stack to the bottom
+ * @stack: beginning of stack
+ * @line_number: line number
+ */
+void rotr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *tmp;
+	(void)line_number;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+		return;
+	tmp = get_dnodeint_at_index(*stack, dlistint_len(*stack) - 1);
+	add_dnodeint(stack, tmp->n);
+	delete_dnodeint_at_index(stack, dlistint_len(*stack) - 1);
+}
