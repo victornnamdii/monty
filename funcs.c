@@ -27,7 +27,13 @@ stack_t *add_dnodeint(stack_t **head, const int n)
 {
 	stack_t *tmp = malloc(sizeof(stack_t));
 
-	if (head == NULL || tmp == NULL)
+	if (tmp == NULL)
+	{
+		error_malloc();
+		exit(EXIT_FAILURE);
+	}
+
+	if (head == NULL)
 		return (NULL);
 	tmp->n = n;
 	tmp->prev = NULL;
@@ -71,7 +77,10 @@ stack_t *add_dnodeint_end(stack_t **head, const int n)
 	stack_t *end = *head;
 
 	if (tmp  == NULL)
-		return (NULL);
+	{
+		error_malloc();
+		exit(EXIT_FAILURE);
+	}
 
 	tmp->n = n;
 	tmp->prev = NULL;
@@ -99,11 +108,7 @@ stack_t *add_dnodeint_end(stack_t **head, const int n)
  */
 stack_t *get_dnodeint_at_index(stack_t *head, unsigned int index)
 {
-	unsigned int i;
-	stack_t *tmp = malloc(sizeof(stack_t));
-
-	if (tmp == NULL)
-		return (NULL);
+	unsigned int i = 0;
 
 	while (i < index)
 	{
