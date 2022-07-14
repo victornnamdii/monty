@@ -105,13 +105,12 @@ stack_t *get_dnodeint_at_index(stack_t *head, unsigned int index)
 	if (tmp == NULL)
 		return (NULL);
 
-	for (i = 0; head != NULL; i++)
+	for (i < index)
 	{
-		tmp = head;
+		if (head == NULL)
+			return (NULL);
 		head = head->next;
-		if (i == index)
-			return (tmp);
+		i++;
 	}
-
-	return (NULL);
+	return (head);
 }
