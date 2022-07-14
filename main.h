@@ -68,5 +68,8 @@ void nop(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
 ssize_t get_line(char **lineptr, size_t *n, FILE *stream);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
+ssize_t getline(char **pline_buf, size_t *pn, FILE *fin);
+
+typedef long int ssize_t;
 
 #endif

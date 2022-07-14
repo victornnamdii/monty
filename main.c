@@ -3,7 +3,6 @@
 stack_t *h;
 FILE *file;
 char *value;
-
 /**
  * get_func - gets required function
  * @opcode: opcode from instruction
@@ -74,7 +73,6 @@ int main(int ac, char **av)
 	h = NULL;
 	value = NULL;
 	file = NULL;
-
 	if (ac != 2)
 	{
 		error_ac();
