@@ -40,6 +40,7 @@ void (*get_func(char *opcode))(stack_t**, unsigned int)
 		{"queue", stack_queue},
 		{"stack", stack_queue},
 		{"sub", sub},
+		{"div", divt},
 		{NULL, NULL}
 	};
 	while (ops[index].opcode)
