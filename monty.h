@@ -28,7 +28,7 @@
 #define error_mul(ln) fprintf(stderr, "L%u: can't mul, stack too short\n", ln)
 #define error_modu(ln) fprintf(stderr, "L%u: can't mod, stack too short\n", ln)
 #define errchar(l) fprintf(stderr, "L%u: can't pchar, value out of range\n", l)
-#define error_pchar2(ln) fprintf(stderr, "l%u: can't pchar, stack empty\n", ln)
+#define error_pchar2(ln) fprintf(stderr, "L%u: can't pchar, stack empty\n", ln)
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
