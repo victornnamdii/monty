@@ -1,3 +1,4 @@
+read 
 >, >, <<
 
 convert from ascii
