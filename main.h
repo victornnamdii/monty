@@ -11,7 +11,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-#define _POSIX_C_SOURCE 200809L
+#define BUFSIZE 1024
 #define _GNU_SOURCE
 #define error_ac() fprintf(stderr, "USAGE: monty file\n")
 #define error_fopen(name) fprintf(stderr, "Error: Can't open file %s\n", name)
@@ -66,5 +66,7 @@ void pall(stack_t **stack, unsigned int line_number);
 void push(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
+ssize_t get_line(char **lineptr, size_t *n, FILE *stream);
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 
 #endif
