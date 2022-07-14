@@ -3,6 +3,23 @@
 stack_t *h;
 FILE *file;
 char *value;
+int mode;
+char *cmd;
+/**
+ * stack_queue - sets to either stack or queue
+ * @stack: beginning of stack
+ * @line_number: line number
+ */
+void stack_queue(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
+
+	if (strcmp(cmd, "queue") == 0)
+		mode = 1;
+	else
+		mode = 0;
+}
 /**
  * get_func - gets required function
  * @opcode: opcode from instruction
@@ -20,6 +37,8 @@ void (*get_func(char *opcode))(stack_t**, unsigned int)
 		{"swap", swap},
 		{"add", add},
 		{"nop", nop},
+		{"queue", stack_queue},
+		{"stack", stack_queue},
 		{NULL, NULL}
 	};
 	while (ops[index].opcode)
@@ -38,24 +57,26 @@ void (*get_func(char *opcode))(stack_t**, unsigned int)
 void run_monty(char *buffer, unsigned int line_number)
 {
 	void (*f)(stack_t**, unsigned int);
-	char *cmd = strtok(buffer, " \r\t\n");
+	cmd = strtok(buffer, " \r\t\n");
 
-	f = get_func(cmd);
-
-	if (f != NULL)
+	if (cmd && cmd[0] != '#')
 	{
-		if (strcmp(cmd, "push") == 0)
-			value = strtok(NULL, " \r\t\n");
-		f(&h, line_number);
-	}
-	else
-	{
-		error_op(line_number, cmd);
-		if (buffer)
-			free(buffer);
-		if (h)
-			free_dlistint(h);
-		exit(EXIT_FAILURE);
+		f = get_func(cmd);
+		if (f != NULL)
+		{
+			if (strcmp(cmd, "push") == 0)
+				value = strtok(NULL, " \r\t\n");
+			f(&h, line_number);
+		}
+		else
+		{
+			error_op(line_number, cmd);
+			if (buffer)
+				free(buffer);
+			if (h)
+				free_dlistint(h);
+			exit(EXIT_FAILURE);
+		}
 	}
 }
 /**
@@ -73,6 +94,8 @@ int main(int ac, char **av)
 	h = NULL;
 	value = NULL;
 	file = NULL;
+	mode = 0;
+	cmd = NULL;
 	if (ac != 2)
 	{
 		error_ac();

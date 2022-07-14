@@ -56,6 +56,8 @@ typedef struct instruction_s
 extern stack_t *h;
 extern FILE *file;
 extern char *value;
+extern int mode;
+
 void free_dlistint(stack_t *head);
 stack_t *add_dnodeint(stack_t **head, const int n);
 size_t dlistint_len(const stack_t *h);
@@ -69,6 +71,7 @@ void add(stack_t **stack, unsigned int line_number);
 ssize_t get_line(char **lineptr, size_t *n, FILE *stream);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 ssize_t getline(char **pline_buf, size_t *pn, FILE *fin);
+stack_t *add_dnodeint_end(stack_t **head, const int n);
 
 typedef long int ssize_t;
 

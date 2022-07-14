@@ -59,3 +59,34 @@ size_t dlistint_len(const stack_t *h)
 	}
 	return (i);
 }
+/**
+ * add_dnodeint_end - adds a new node at the end of a list
+ * @head: head of doubly linked list
+ * @n: data for new node
+ * Return: the address of the new element, or NULL if it failed
+ */
+stack_t *add_dnodeint_end(stack_t **head, const int n)
+{
+	stack_t *tmp = malloc(sizeof(stack_t));
+	stack_t *end = *head;
+
+	if (tmp  == NULL)
+		return (NULL);
+
+	tmp->n = n;
+	tmp->prev = NULL;
+	tmp->next = NULL;
+
+	if (*head == NULL)
+	{
+		*head = tmp;
+		return (tmp);
+	}
+
+	while (end->next != NULL)
+		end = end->next;
+	end->next = tmp;
+	tmp->prev = end;
+
+	return (tmp);
+}

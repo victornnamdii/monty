@@ -23,7 +23,10 @@ void push(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	element = atoi(value);
-	add_dnodeint(stack, element);
+	if (mode == 1)
+		add_dnodeint_end(stack, element);
+	else
+		add_dnodeint(stack, element);
 }
 /**
  * pall - Prints all elements
