@@ -43,6 +43,5 @@ void pchar(stack_t **stack, unsigned int line_number)
 		errchar(line_number);
 		exit(EXIT_FAILURE);
 	}
-	putchar((*stack)->n);
-	putchar(10);
+	printf("%c\n", (*stack)->n);
 }
